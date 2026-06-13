@@ -23,4 +23,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='escola.html')),
     path('titulo/', include("titulo.urls")),
     path('instrutor/', include("instrutor.urls")),
+    path('tipodeatividade/', include("tipodeatividade.urls")),
 ]

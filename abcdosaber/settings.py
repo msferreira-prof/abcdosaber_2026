@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'titulo.apps.TituloConfig',
     'instrutor.apps.InstrutorConfig',
+    'tipodeatividade.apps.TipodeatividadeConfig',
 ]
 
 MIDDLEWARE = [
