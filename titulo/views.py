@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from titulo.models import Titulo
 
 # Create your views here.
@@ -16,11 +16,14 @@ def cadastrar(request):
     return render(request, 'titulo/cadastroTitulos.html')
 
 def excluir(request, codigoTitulo):
-    try: 
-        titulo = Titulo.objects.get(pk=codigoTitulo)
-        titulo.delete()
-    except Titulo.DoesNotExist:
-        pass
+    titulo = get_object_or_404(Titulo, pk=codigoTitulo)
+    titulo.delete()
     
     return redirect('titulo:listar')
-    
+
+
+def error_404(request, exception):
+    return render(request, 'erro404.html', status=404)    
+
+def error_500(request):
+    return render(request, 'erro500.html', status=500)    

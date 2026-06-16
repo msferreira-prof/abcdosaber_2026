@@ -1,0 +1,30 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+    <title>Abc do Saber - 404</title>
+{% endblock %}
+
+{% block menu%}
+{% endblock %}            
+
+{% block titulo_pagina %}
+<div class="container text-center m-4">
+    <div class="display-2 mt-5">
+        <h1 class="display-4">Escola ABC do Saber</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block corpo %}
+<main class="container m-6 p-5 mx-auto my-font-family">
+    <div class="card shadow p-5">
+        <h1 class="display-1 text-danger">404</h1>
+        <h3>Página não encontrada</h3>
+        <p class="text-muted">O recurso que você tentou acessar não existe.</p>
+        <a href="/" class="nav-link">Voltar para início</a>
+    </div>
+</main>
+{% endblock %}
+
+{% block javascript_complementar %}
+{% endblock javascript_complementar %}

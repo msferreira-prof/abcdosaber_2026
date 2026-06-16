@@ -25,3 +25,7 @@ urlpatterns = [
     path('instrutor/', include("instrutor.urls")),
     path('tipodeatividade/', include("tipodeatividade.urls")),
 ]
+
+# manipuladores de erro globais
+handler404 = 'titulo.views.error_404'
+handler500 = 'titulo.views.error_500'
