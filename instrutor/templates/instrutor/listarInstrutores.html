@@ -26,66 +26,56 @@
             </div>
         </div>
 
-        <!-- tabela responsiva -->
-        <div class="table-responsive">
+        {% if instrutores %}
+            <!-- tabela responsiva -->
+            <div class="table-responsive">
 
-            <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
-            <table class="table
-                        table-borderless
-                        text-center
-                        my-table-hover
-                        my-table-image
-                        my-table-td-first-child
-                        my-table-border-bottom
-                        my-table-th
-                        w-100">
+                <!-- classes para tabela (Bootstrap) , tabela sem borda, conteudo alinhado ao centro, ... , width: auto -->
+                <table class="table
+                            table-borderless
+                            text-center
+                            my-table-hover
+                            my-table-image
+                            my-table-td-first-child
+                            my-table-border-bottom
+                            my-table-th
+                            w-100">
 
-                <!-- cabecalho -->
-                <thead>
+                    <!-- cabecalho -->
+                    <thead>
+                        <!-- linhas -->
+                        <tr>
+                            <!-- colunas cabecalho -->
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>RG</th>
+                            <th>Data Nascimento</th>
+                            <th>DDD</th>
+                            <th>Telefone</th>
+                            <th>Titularidade</th>
+                        </tr>
+                    </thead>
+
                     <!-- linhas -->
+                    {% for i in instrutores %}
                     <tr>
-                        <!-- colunas cabecalho -->
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>RG</th>
-                        <th>Data Nascimento</th>
-                        <th>DDD</th>
-                        <th>Telefone</th>
-                        <th>Titularidade</th>
+                        <td> {{ i.id }} </td>
+                        <td> {{ i.nome }} </td>
+                        <td> {{ i.rg }} </td>
+                        <td> {{ i.data_nascimento }} </td>
+                        <td> {{ i.ddd }} </td>
+                        <td> {{ i.telefone }} </td>
+                        <td> {{ i.codigo_titulo.descricao }} </td>
                     </tr>
-                </thead>
+                    {% endfor %}
+                </table>
 
-                <!-- linhas -->
-                <tr>
-                    <td> 1 </td>
-                    <td> Jefferson Gonçalves </td>
-                    <td> 099998888 </td>
-                    <td> 05/10/1978 </td>
-                    <td> 021 </td>
-                    <td> 897698512 </td>
-                    <td> Professor Doutor </td>
-                </tr>
-                <tr>
-                    <td> 2 </td>
-                    <td> Maria Joaquina </td>
-                    <td> 125487966 </td>
-                    <td> 10/01/1987 </td>
-                    <td> 021 </td>
-                    <td> 12322211 </td>
-                    <td> Professor Doutor </td>
-                </tr>
-                <tr>
-                    <td> 3 </td>
-                    <td> Juliana Fergusson </td>
-                    <td> 874895692 </td>
-                    <td> 15/11/1968 </td>
-                    <td> 022 </td>
-                    <td> 87474774 </td>
-                    <td> Professor Sabe-Tudo </td>
-                </tr>
-            </table>
-
-        </div>
+            </div>
+        {% else %}
+            <div class="text-danger text-center">
+                <p>Não há Instrutores cadastrados.</p>
+            </div>        
+        {% endif %}
 
     </main>
 {% endblock %}
