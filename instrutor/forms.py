@@ -30,7 +30,7 @@ class InstrutorForm(forms.Form):
         help_text='Informe o telefone do instrutor'
     )    
     
-    codigo_titulo = forms.Integer(
+    codigo_titulo = forms.IntegerField(
         required=False,
         help_text='Informe o código do título do instrutor'
     )    
