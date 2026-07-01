@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
         <div class="navbar-nav">
             <a href="/" class="nav-link">Início</a>
-            <a href="{% url 'instrutor:cadastrar' %}" class="nav-link">Cadastrar</a>
+            <a href="{% url 'instrutor:cadastro' %}" class="nav-link">Cadastrar</a>
             <a href="{% url 'instrutor:listar' %}" class="nav-link">Listar</a>            
         </div>
     </div>
@@ -27,7 +27,9 @@
         </div>
 
         <!-- formulario HTML -->
-        <form name="frmCadastrarInstrutor" action="#" method="post" class="my-label-color-purple">
+        <form name="frmCadastrarInstrutor" action="{% url 'instrutor:cadastrar' %}" method="post" class="my-label-color-purple">
+
+            {% csrf_token %}
 
             <div class="form-group">
                 <label for="idNomeInstrutor" class="col-form-label">Nome do Instrutor</label>
@@ -43,7 +45,7 @@
 
             <div class="form-group">
                 <label for='idDataNascimento'>Data de Nascimento</label>
-                <input class="form-control" type='date' id='idDataNascimento' name='dataNascimento' required>
+                <input class="form-control" type='date' id='idDataNascimento' name='data_nascimento' required>
             </div>
 
             <div class="form-group row">
@@ -59,12 +61,11 @@
 
             <div class="form-group">
                 <label for="idTitulo">Título do Professor</label>
-                <select class="form-control" id="idTitulo" name="codigoTitulo">
+                <select class="form-control" id="idTitulo" name="codigo_titulo">
                     <option value="0">Selecione...</option>
-                    <option value="1">Professor Doutor</option>
-                    <option value="2">Professor Sabe-Tudo</option>
-                    <option value="3">Professor Estagiário</option>
-
+                    {% for titulo in titulos %}
+                        <option value="{{ titulo.codigo }}">{{ titulo.descricao }}</option>
+                    {% endfor %}
                 </select>
             </div>
 

@@ -1,0 +1,39 @@
+{% extends 'base_template.html' %}
+
+{% block title %}
+    <title>Erro</title>
+{% endblock %}
+
+{% block menu %}
+    <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+        <div class="navbar-nav">
+            <a href="/" class="nav-link">Início</a>
+            <a href="{% url 'instrutor:cadastro' %}" class="nav-link">Cadastrar</a>
+            <a href="{% url 'instrutor:listar' %}" class="nav-link">Listar</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block titulo_pagina %}
+{% endblock %}
+
+{% block corpo %}
+    <main class="container m-2 mx-auto my-font-family">
+        <div class="row">
+            <div class="col text-center m-0">
+                <h2 class="mt-2 mb-5 my-h2">Erro ao cadastrar instrutor</h2>
+            </div>
+        </div>
+
+        {% if erros %}
+            <div>
+                {% for campo, mensagens in erros.items %}
+                    {% for mensagem in mensagens %}
+                        <p class="text-center text-danger">{{ campo }} : {{ mensagem }}</p>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </main>
+{% endblock %}
