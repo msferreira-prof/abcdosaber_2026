@@ -23,3 +23,4 @@ def excluir(request, codigo):
         pass
     
     return redirect('tipodeatividade:listar')
+

@@ -50,4 +50,13 @@ def carregar_cadastro(request):
     }
     
     return render(request, 'instrutor/cadastroInstrutor.html', context=contexto)
+
+def excluir(request, id):
+    try: 
+        instrutor = Instrutor.objects.get(pk=id)
+        instrutor.delete()
+    except Instrutor.DoesNotExist:
+        pass
     
+    return redirect('instrutor:listar')  
+

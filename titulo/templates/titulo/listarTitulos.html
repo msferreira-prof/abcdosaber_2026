@@ -58,7 +58,7 @@
                     <td>{{ titulo.codigo }} </td>
                     <td>{{ titulo.descricao }}</td>
                     <td>
-                        <a href="#" class="btn btn-mini"><i class="far fa-edit"></i></a>
+                        <a href="{% url 'titulo:carregar_titulo' titulo.codigo %}" class="btn btn-mini"><i class="far fa-edit"></i></a>
                         <button type="button" class="btn" role="button" data-target="#modalExcluirTitulo"
                                 data-toggle="modal" data-descricao="{{ titulo.descricao }}" 
                                 data-url="{% url 'titulo:excluir_titulo' titulo.codigo %}">
