@@ -19,7 +19,9 @@
 
 {% block corpo %}
     <main class="container m-2 w-75 mx-auto">
-        <form action="#" method="POST" name="frmCadastrarTitulo" id="idFrmCadastrarTiposAtividade">
+        <form action="{% url 'tipodeatividade:cadastrar' %}" method="POST" name="frmCadastrarTiposAtividade" id="idFrmCadastrarTiposAtividade">
+            {% csrf_token %}
+
             <div class="form-group">
                 <label for='idDescricao'>Descrição</label>
                 <input class="form-control" type='text' id='idDescricao' name='descricao' placeholder='Informe a descrição' required>

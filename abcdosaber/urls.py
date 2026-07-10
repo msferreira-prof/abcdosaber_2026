@@ -24,6 +24,7 @@ urlpatterns = [
     path('titulo/', include("titulo.urls")),
     path('instrutor/', include("instrutor.urls")),
     path('tipodeatividade/', include("tipodeatividade.urls")),
+    path('turma/', include("turma.urls")),
 ]
 
 # manipuladores de erro globais

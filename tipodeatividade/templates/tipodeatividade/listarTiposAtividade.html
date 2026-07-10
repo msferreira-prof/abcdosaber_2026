@@ -58,7 +58,7 @@
                     <td>{{ ta.codigo }} </td>
                     <td>{{ ta.descricao }}</td>
                     <td>
-                        <a href="#" class="btn btn-mini"><i class="far fa-edit"></i></a>
+                        <a href="{% url 'tipodeatividade:carregar_tipodeatividade' ta.codigo %}" class="btn btn-mini"><i class="far fa-edit"></i></a>
                         <button type="button" class="btn" role="button" data-target="#modalExcluirTipoDeAtividade"
                                 data-toggle="modal" data-descricao="{{ ta.descricao }}" 
                                 data-url="{% url 'tipodeatividade:excluir_tipodeatividade' ta.codigo %}">

@@ -1,0 +1,51 @@
+{% extends "base_template.html" %}
+
+{% block title %}
+    <title>AbcDoSaber - Tipo de Atividade</title>
+{% endblock %}
+
+{% block menu %}
+    <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+        <div class="navbar-nav">
+            <a href="/" class="nav-link">Início</a>
+            <a href="{% url 'tipodeatividade:cadastro' %}" class="nav-link">Cadastrar</a>
+            <a href="{% url 'tipodeatividade:listar' %}" class="nav-link">Listar</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block titulo_pagina %}
+{% endblock %}
+
+{% block corpo %}
+    <main class="container m-2 w-75 mx-auto">
+
+        <div class="row">
+            <div class="col text-center m-0">
+                <h2 class="mt-2 mb-5 my-h2">Atualização de Tipo de Atividade</h2>
+            </div>
+        </div>
+
+        <form action="{% url 'tipodeatividade:atualizar_tipodeatividade' %}" method="POST" name="frmAtualizarTipoAtividade" id="idFrmAtualizarTitulo"
+              class="my-label-color-purple">
+            
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="idCodigo" class="col-form-label">Código</label>
+                <input class="form-control" type="text" id="idCodigo" name="codigo" value="{{ tipodeatividade.codigo }}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for='idDescricao'>Descrição</label>
+                <input class="form-control" type='text' id='idDescricao' name='descricao' placeholder='Informe a descrição' 
+                 maxlength="70" value="{{ tipodeatividade.descricao }}" required>
+            </div>
+
+            <div class='form-group text-center'>
+                <input type='reset'  value='Limpar' class='btn btn-primary btn-md'>
+                <input type='submit' value='Atualizar' class='btn btn-primary btn-md' id="btnAtualizarTitulo">
+            </div>
+        </form>
+    </main>
+{% endblock %}
