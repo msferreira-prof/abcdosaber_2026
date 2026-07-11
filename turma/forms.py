@@ -9,5 +9,16 @@ class TurmaForm(forms.Form):
     codigo_atividade = forms.IntegerField(required=True, help_text="Informe o código do Tipo de Atividade da Turma")
     matricula_monitor = forms.IntegerField(required=True, help_text="Informe a matrícula do Aluno Monitor da Turma")
     id_instrutor = forms.IntegerField(required=True, help_text="Informe o id do Instrutor da Turma")
+
+class AtualizarTurmaForm(forms.Form):
+    numero = forms.IntegerField(required=True)
+    horario_aula = forms.TimeField(required=True)
+    duracao_aula = forms.IntegerField(required=True)
+    data_inicial = forms.DateField(required=True)
+    data_final = forms.DateField(required=False)
+    codigo_atividade = forms.IntegerField(required=True)
+    matricula_monitor = forms.IntegerField(required=True)
+    id_instrutor = forms.IntegerField(required=True)
+
     
     

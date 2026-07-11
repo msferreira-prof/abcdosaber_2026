@@ -88,19 +88,6 @@ def atualizar(request):
     # redirecionar para a lista de titulo
     return redirect('titulo:listar')
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 def error_404(request, exception):
     return render(request, 'erro404.html', status=404)    
 

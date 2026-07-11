@@ -85,7 +85,7 @@
                             {% endif %}
                         </td>
                         <td>
-                        <a href="#" class="btn btn-mini"><i class="far fa-edit"></i></a>
+                        <a href="{% url 'turma:carregar_turma' t.numero %}" class="btn btn-mini"><i class="far fa-edit"></i></a>
                         <button type="button" class="btn" role="button" data-target="#modalExcluirTurma"
                                 data-toggle="modal" data-numero="{{ t.numero }}" 
                                 data-url="{% url 'turma:excluir' t.numero %}">
